@@ -1,6 +1,9 @@
 public class Palindrome {
     public static boolean isPalindrome(String s) {
         // your code here
+        if (s == null) {
+            return false ;
+        }
         String reversed = new StringBuilder(s).reverse().toString();
         s.equals(reversed);
 
