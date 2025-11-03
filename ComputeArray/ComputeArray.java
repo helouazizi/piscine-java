@@ -4,11 +4,11 @@ public class ComputeArray {
 
         for (int i = 0; i < array.length; i++) {
             int num = array[i];
-            int remainder = num % 3;
+            int remainder = ((num % 3) + 3) % 3;
 
             if (remainder == 0) {
                 result[i] = num * 5;
-            } else if (remainder == 1 || remainder == -2) {
+            } else if (remainder == 1) {
                 result[i] = num + 7;
             } else {
                 result[i] = num;
