@@ -10,8 +10,9 @@ public class CleanExtract {
             } else if (first == last) {
                 res += part.substring(first + 1);
             } else if (first == -1 && last == -1 && !part.isEmpty()) {
-                res += part.trim();
+                res += part;
             }
+            res += " ";
 
         }
         return res.replaceAll("\\s+", " ").trim();
