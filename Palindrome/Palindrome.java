@@ -5,7 +5,7 @@ public class Palindrome {
             return false ;
         }
         String reversed = new StringBuilder(s).reverse().toString();
-        s.equals(reversed);
+         return s.equals(reversed);
 
     }
 }
