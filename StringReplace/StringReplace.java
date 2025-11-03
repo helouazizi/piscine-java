@@ -3,7 +3,7 @@ public class StringReplace {
         // your code here
 
         if (s == null) {
-            return "";
+            return new String();
         }
         return s.replaceAll(target, replacement);
 
