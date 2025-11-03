@@ -1,4 +1,3 @@
-package HelloWorld;
 
 public class HelloWorld {
      public static String helloWorld() {
