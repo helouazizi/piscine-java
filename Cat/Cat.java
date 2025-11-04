@@ -1,18 +1,18 @@
 import java.io.*;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class Cat {
-    public static void cat(String[] args) throws IOException {
+    public static void cat(String[] args) {
         if (args.length == 0) {
-            return;
+            return; 
         }
 
         File file = new File(args[0]);
-        try (Scanner reader = new Scanner(file)) {
-            while (reader.hasNextLine()) {
-                System.out.println(reader.nextLine());
-            }
-        } catch (FileNotFoundException e) {
+        try {
+            String content = new String(Files.readAllBytes(file.toPath()));
+            System.out.println(content); 
+        } catch (IOException e) {
             System.out.println("Error");
         }
     }
