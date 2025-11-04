@@ -13,7 +13,7 @@ public class Cat {
             while ((bytesRead = fis.read(buffer)) != -1) {
                 System.out.write(buffer, 0, bytesRead);
             }
-            System.out.println();
+            // System.out.println();
         } catch (IOException e) {
             System.out.println("Error");
         }
