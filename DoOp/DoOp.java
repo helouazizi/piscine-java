@@ -1,7 +1,7 @@
 public class DoOp {
     public static String operate(String[] args) {
         // if no arguments, return Error
-        if (args.length == 0) {
+        if (args.length == 0 || args.length != 3) {
             return "Error";
         }
 
