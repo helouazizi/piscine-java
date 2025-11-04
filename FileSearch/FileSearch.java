@@ -19,7 +19,7 @@ public class FileSearch {
 
         for (File file : files) {
             if (file.isFile() && file.getName().equals(fileName)) {
-                return file.getAbsolutePath();
+                return getRelativePath(directory, file);
             }
 
             if (file.isDirectory()) {
@@ -30,6 +30,16 @@ public class FileSearch {
             }
         }
 
+        return null;
+    }
+
+    private static String getRelativePath(File baseDir, File file) {
+        String basePath = baseDir.getAbsolutePath();
+        String filePath = file.getAbsolutePath();
+
+        if (filePath.startsWith(basePath)) {
+            return filePath.substring(basePath.length() + 1);
+        }
         return null;
     }
 }
