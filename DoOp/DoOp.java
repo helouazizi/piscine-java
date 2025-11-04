@@ -26,7 +26,7 @@ public class DoOp {
                 }
                 return (first % second) + "";
             default:
-                return "it depend on the input.";
+                return "Error";
         }
     }
 }
