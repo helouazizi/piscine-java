@@ -12,13 +12,12 @@ public class Capitalize {
 
         List<String> lines = new ArrayList<>();
 
-        // Read and process lines
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) {
-                    lines.add(""); // preserve empty lines
+                    lines.add(""); // empty lines
                     continue;
                 }
 
@@ -42,12 +41,11 @@ public class Capitalize {
             }
         }
 
-        // Write lines without adding extra newline at the end
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             for (int i = 0; i < lines.size(); i++) {
                 writer.write(lines.get(i));
                 if (i < lines.size() - 1) {
-                    writer.newLine(); // newline only between lines
+                    writer.newLine(); 
                 }
             }
         }
