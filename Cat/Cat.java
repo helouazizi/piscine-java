@@ -11,7 +11,7 @@ public class Cat {
         File file = new File(args[0]);
         try {
             String content = new String(Files.readAllBytes(file.toPath()));
-            System.out.println(content); 
+            System.out.println(content.trim());
         } catch (IOException e) {
             System.out.println("Error");
         }
