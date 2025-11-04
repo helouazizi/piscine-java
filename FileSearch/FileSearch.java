@@ -39,7 +39,7 @@ public class FileSearch {
         String basePath = new File("documents").getAbsolutePath();
 
         if (filePath.startsWith(basePath)) {
-            return filePath.substring(basePath.length() + 1);
+            return "documents/"  +filePath.substring(basePath.length() + 1);
         }
 
         return null;
