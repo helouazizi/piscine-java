@@ -1,17 +1,19 @@
 import java.io.*;
-import java.io.IOException;
-import java.nio.file.Files;
 
 public class Cat {
-    public static void cat(String[] args) {
+    public static void cat(String[] args) throws IOException {
         if (args.length == 0) {
-            return; 
+            return;
         }
 
         File file = new File(args[0]);
-        try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            System.out.println(content.trim());
+        try (FileInputStream fis = new FileInputStream(file)) {
+            byte[] buffer = new byte[4096]; 
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                System.out.write(buffer, 0, bytesRead);
+            }
+            System.out.println();
         } catch (IOException e) {
             System.out.println("Error");
         }
