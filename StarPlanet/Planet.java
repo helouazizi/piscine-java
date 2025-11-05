@@ -29,12 +29,12 @@ public class Planet extends CelestialObject {
         if (obj == null || getClass() != obj.getClass())
             return false;
         Planet other = (Planet) obj;
-        return this.name.equals(other.name) && this.x == other.x && this.y == other.y && this.z == other.z && this.centerStar.equals(other.centerStar);
+        return super.equals(other) && Objects.equals(centerStar,other.centerStar);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name,x,y,z,centerStar);
+        return Objects.hash(super.name,super.x,super.y,super.z,this.centerStar);
     }
 
     @Override
