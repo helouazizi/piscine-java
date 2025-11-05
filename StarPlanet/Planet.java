@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Planet extends CelestialObject {
 
     private Star centerStar;
@@ -32,7 +34,7 @@ public class Planet extends CelestialObject {
 
     @Override
     public int hashCode() {
-        return centerStar.hashCode() ;
+        return Objects.hash(name, x, y, z, centerStar);
     }
 
     @Override
