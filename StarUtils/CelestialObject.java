@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class CelestialObject {
     public double x, y, z;
     public String name;
@@ -61,7 +63,20 @@ public class CelestialObject {
     public static double getDistanceBetweenInKm(CelestialObject defeoult, CelestialObject obj2) {
         double d = getDistanceBetween(defeoult, obj2);
 
-        return d * KM_IN_ONE_AU; 
+        return d * KM_IN_ONE_AU;
+    }
+
+    public String toString() {
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
+    }
+
+    public boolean equals(CelestialObject obl2) {
+
+        return this.name == obl2.name && this.x == obl2.x && this.y == obl2.y && this.z == obl2.z;
+    }
+
+    public int hashCode() {
+        return Objects.hash(name, x, y, z);
     }
 
 }
