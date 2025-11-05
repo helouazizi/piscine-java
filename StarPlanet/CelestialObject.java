@@ -1,39 +1,24 @@
 import java.util.Objects;
 
 public class CelestialObject {
-    public double x, y, z;
+    public double x;
+    public double y;
+    public double z;
     public String name;
-    public static double KM_IN_ONE_AU = 150000000;
+    public static final double KM_IN_ONE_AU = 150000000;
 
-    // Default constructor
     public CelestialObject() {
+        this.name = "Soleil";
         this.x = 0.0;
         this.y = 0.0;
         this.z = 0.0;
-        this.name = "Soleil";
     }
 
     public CelestialObject(String name, double x, double y, double z) {
+        this.name = name;
         this.x = x;
         this.y = y;
         this.z = z;
-        this.name = name;
-    }
-
-    public double getX() {
-        return this.x;
-    }
-
-    public double getY() {
-        return this.y;
-    }
-
-    public double getZ() {
-        return this.z;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public void setX(double x) {
@@ -52,34 +37,53 @@ public class CelestialObject {
         this.name = name;
     }
 
-    public static double getDistanceBetween(CelestialObject defeoult, CelestialObject obj2) {
-        double dx = obj2.x - defeoult.x;
-        double dy = obj2.y - defeoult.y;
-        double dz = obj2.z - defeoult.z;
-
-        return Math.sqrt(dx * dx + dy * dy + dz * dz);
+    public String getName() {
+        return name;
     }
 
-    public static double getDistanceBetweenInKm(CelestialObject defeoult, CelestialObject obj2) {
-        double d = getDistanceBetween(defeoult, obj2);
+    public double getX() {
+        return x;
+    }
 
-        return d * KM_IN_ONE_AU;
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public static double getDistanceBetween(CelestialObject c1, CelestialObject c2) {
+        double x = (c2.x - c1.x) * (c2.x - c1.x);
+        double y = (c2.y - c1.y) * (c2.y - c1.y);
+        double z = (c2.z - c1.z) * (c2.z - c1.z);
+        double result = Math.sqrt(x + y + z);
+        return result;
+    }
+
+    public static double getDistanceBetweenInKm(CelestialObject c1, CelestialObject c2) {
+        double x = (c2.x - c1.x) * (c2.x - c1.x);
+        double y = (c2.y - c1.y) * (c2.y - c1.y);
+        double z = (c2.z - c1.z) * (c2.z - c1.z);
+        double result = Math.sqrt(x + y + z);
+        return result * KM_IN_ONE_AU;
     }
 
     public String toString() {
-        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)", name, x, y, z);
     }
 
-    public boolean equals(CelestialObject obj) {
-        if (this == obj)
-            return true; 
-        if (obj == null || getClass() != obj.getClass())
+    public boolean equals(CelestialObject c1) {
+        if (c1 == null) {
             return false;
-        return this.name == obj.name && this.x == obj.x && this.y == obj.y && this.z == obj.z;
+        }
+        if (c1.hashCode() != hashCode()) {
+            return false;
+        }
+        return true;
     }
 
     public int hashCode() {
-        return Objects.hash(name, x, y, z);
+        return Objects.hash(x, y, z, name);
     }
-
 }
