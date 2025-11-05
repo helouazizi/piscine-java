@@ -1,23 +1,27 @@
 import java.util.Objects;
 
 public class CelestialObject {
-    public double x, y, z;
-    public String name;
-    public static double KM_IN_ONE_AU = 150000000;
+    private String name;
+    private double x;
+    private double y;
+    private double z;
+    private int mass;
+    public static final double KM_IN_ONE_AU = 150000000;
 
-    // Default constructor
     public CelestialObject() {
-        this.x = 0.0;
-        this.y = 0.0;
-        this.z = 0.0;
-        this.name = "Soleil";
+        this("Soleil", 0.0, 0.0, 0.0, 0);
     }
 
-    public CelestialObject(String name, double x, double y, double z) {
+    public CelestialObject(String name, double x, double y, double z, int mass) {
+        this.name = name;
         this.x = x;
         this.y = y;
         this.z = z;
-        this.name = name;
+        this.mass = mass;
+    }
+
+    public int getMass() {
+        return mass;
     }
 
     public double getX() {
@@ -72,7 +76,7 @@ public class CelestialObject {
 
     public boolean equals(CelestialObject obj) {
         if (this == obj)
-            return true; 
+            return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
         return this.name == obj.name && this.x == obj.x && this.y == obj.y && this.z == obj.z;
