@@ -29,19 +29,18 @@ public class Planet extends CelestialObject {
         if (obj == null || getClass() != obj.getClass())
             return false;
         Planet other = (Planet) obj;
-        return centerStar != null ? centerStar.equals(other.centerStar) : other.centerStar == null;
+        return Objects.equals(centerStar, other.centerStar);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, x, y, z, centerStar);
+        return Objects.hash(centerStar);
     }
 
     @Override
     public String toString() {
-        double distanceWithCenterStar = getDistanceBetween(centerStar, centerStar);
+        double distanceWithCenterStar = getDistanceBetween(this, centerStar);
         return getName() + " circles around " + centerStar.getName() +
                 " at the " + distanceWithCenterStar + " AU";
     }
-
 }
