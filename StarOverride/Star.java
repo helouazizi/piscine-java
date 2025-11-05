@@ -29,7 +29,7 @@ public class Star extends CelestialObject {
     }
 
     public String toString() {
-        return String.format("%s shines at the (%.2f) magnitude", this.name, this.magnitude);
+        return String.format("%s shines at the %.3f magnitude", this.name, this.magnitude);
     }
 
     public boolean equals(CelestialObject obj) {
