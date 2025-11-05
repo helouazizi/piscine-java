@@ -6,13 +6,13 @@ public class Planet extends CelestialObject {
 
     // Default constructor
     public Planet() {
-        super();                   // Call CelestialObject default constructor
+        super(); // Call CelestialObject default constructor
         this.centerStar = new Star(); // Initialize centerStar with default Star
     }
 
     // Parameterized constructor
     public Planet(String name, double x, double y, double z, Star centerStar) {
-        super(name, x, y, z);      // Call CelestialObject parameterized constructor
+        super(name, x, y, z); // Call CelestialObject parameterized constructor
         this.centerStar = centerStar;
     }
 
@@ -33,14 +33,15 @@ public class Planet extends CelestialObject {
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
+        if (!super.equals(obj))
+            return false;
         Planet other = (Planet) obj;
         return Objects.equals(centerStar, other.centerStar);
     }
 
-    // HashCode based on centerStar only
     @Override
     public int hashCode() {
-        return Objects.hash(centerStar);
+        return Objects.hash(super.hashCode(), centerStar);
     }
 
     // toString with formatted distance
