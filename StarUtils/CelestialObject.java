@@ -70,9 +70,12 @@ public class CelestialObject {
         return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
     }
 
-    public boolean equals(CelestialObject obl2) {
-
-        return this.name == obl2.name && this.x == obl2.x && this.y == obl2.y && this.z == obl2.z;
+    public boolean equals(CelestialObject obj) {
+        if (this == obj)
+            return true; 
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        return this.name == obj.name && this.x == obj.x && this.y == obj.y && this.z == obj.z;
     }
 
     public int hashCode() {
