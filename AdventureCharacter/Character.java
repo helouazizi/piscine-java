@@ -23,13 +23,14 @@ public class Character {
 
     public void attack(Character c) {
         c.takeDamage(9);
-
     }
 
     public void takeDamage(int i) {
 
         if (currentHealth > 0) {
             currentHealth -= i;
+        }else {
+            currentHealth = 0;
         }
     }
 
