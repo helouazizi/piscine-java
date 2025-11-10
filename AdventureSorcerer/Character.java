@@ -14,7 +14,9 @@ public class Character {
         allCharacters.add(this);
     }
 
-   
+    protected void setCurrentHealth(int n) {
+        this.currentHealth = Math.min(n, this.maxHealth);
+    }
 
     public String getName() {
         return this.name;
