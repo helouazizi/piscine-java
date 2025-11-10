@@ -26,10 +26,8 @@ public class Character {
     }
 
     public void takeDamage(int i) {
-
-        if (currentHealth > 0) {
-            currentHealth -= i;
-        }else {
+        currentHealth -= i;
+        if (currentHealth < 0) {
             currentHealth = 0;
         }
     }
