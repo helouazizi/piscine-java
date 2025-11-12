@@ -35,6 +35,6 @@ public class StreamCollect {
             .sorted()
             .collect(Collectors.joining(" # "));
 
-        return "##{" + joined + "}";
+        return "{" + joined + "}";
     }
 }
