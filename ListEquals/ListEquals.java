@@ -1,9 +1,15 @@
 import java.util.List;
+
 public class ListEquals {
     public static boolean areListsEqual(List<String> list1, List<String> list2) {
-        if (list1 == null || list1 == null) {
-            return false ;
+
+        if (list1 == null && list1 == null) {
+            return false;
         }
+        if (list1 == null || list1 == null) {
+            return false;
+        }
+
         // your code here
         return list1.equals(list2);
     }
