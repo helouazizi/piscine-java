@@ -18,7 +18,7 @@ public class ListSearchIndex {
                 return i;
             }
         }
-        return -1;
+        return null;
     }
 
     public static List<Integer> findAllIndexes(List<Integer> list, Integer value) {
