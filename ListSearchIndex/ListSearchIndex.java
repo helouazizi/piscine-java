@@ -10,7 +10,7 @@ public class ListSearchIndex {
     }
 
     public static Integer findFirstIndex(List<Integer> list, Integer value) {
-        if (list == null || value == null) {
+        if (list == null || value == null || list.isEmpty()) {
             return null;
         }
         for (int i = 0; i < list.size(); i++) {
