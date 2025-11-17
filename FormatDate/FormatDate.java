@@ -7,6 +7,9 @@ import java.util.Locale;
 public class FormatDate {
 
     public static String formatToFullText(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
         DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("LLLL", Locale.FRENCH);
 
         String day = String.valueOf(dateTime.getDayOfMonth());
@@ -18,20 +21,26 @@ public class FormatDate {
         int second = dateTime.getSecond();
 
         return "Le " + day + " " + month + " de l'an " + year +
-               " à " + hour + "h" + minute + "m et " + second + "s";
+                " à " + hour + "h" + minute + "m et " + second + "s";
     }
 
     public static String formatSimple(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
         DateTimeFormatter italianFmt = DateTimeFormatter.ofPattern("LLLL", Locale.ITALIAN);
         String month = date.format(italianFmt);
 
         int day = date.getDayOfMonth();
-        int yearShort = date.getYear() % 100; 
+        int yearShort = date.getYear() % 100;
 
         return month + " " + day + " " + yearShort;
     }
 
     public static String formatIso(LocalTime time) {
+        if (time == null) {
+            return null;
+        }
         DateTimeFormatter isoFmt = DateTimeFormatter.ofPattern("HH:mm:ss.nnnnnnnnn");
         return time.format(isoFmt);
     }
