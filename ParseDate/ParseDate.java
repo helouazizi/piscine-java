@@ -9,18 +9,27 @@ public class ParseDate {
 
     public static LocalDateTime parseIsoFormat(String stringDate) {
         // your code here
+        if (stringDate == null) {
+            return null;
+        }
         return LocalDateTime.parse(stringDate);
     }
 
     public static LocalDate parseFullTextFormat(String stringDate) {
+        if (stringDate == null) {
+            return null;
+        }
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                .parseCaseInsensitive() 
+                .parseCaseInsensitive()
                 .appendPattern("EEEE dd MMMM yyyy")
-                .toFormatter(Locale.ENGLISH); 
+                .toFormatter(Locale.ENGLISH);
         return LocalDate.parse(stringDate.toLowerCase(), formatter);
     }
 
     public static LocalTime parseTimeFormat(String stringDate) {
+        if (stringDate == null) {
+            return null;
+        }
         stringDate = stringDate.toLowerCase();
         int h = extractNumber(stringDate, "hour");
         int m = extractNumber(stringDate, "minutes");
