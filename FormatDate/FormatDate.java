@@ -41,7 +41,7 @@ public class FormatDate {
         if (time == null) {
             return null;
         }
-        DateTimeFormatter isoFmt = DateTimeFormatter.ofPattern("HH:mm:ss.nnnnnnnnn");
+        DateTimeFormatter isoFmt = DateTimeFormatter.ofPattern("HH:mm:ss");
         return time.format(isoFmt);
     }
 }
