@@ -7,13 +7,12 @@ import java.util.Locale;
 public class FormatDate {
 
     public static String formatToFullText(LocalDateTime dateTime) {
-        if (dateTime == null) {
-            return null;
-        }
-        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("LLLL", Locale.FRENCH);
+        if (dateTime == null) return null;
 
-        String day = String.valueOf(dateTime.getDayOfMonth());
+        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("LLL", Locale.FRENCH);
+
         String month = dateTime.format(monthFormatter);
+        int day = dateTime.getDayOfMonth();
         int year = dateTime.getYear();
 
         int hour = dateTime.getHour();
@@ -25,12 +24,11 @@ public class FormatDate {
     }
 
     public static String formatSimple(LocalDate date) {
-        if (date == null) {
-            return null;
-        }
-        DateTimeFormatter italianFmt = DateTimeFormatter.ofPattern("LLLL", Locale.ITALIAN);
-        String month = date.format(italianFmt);
+        if (date == null) return null;
 
+        DateTimeFormatter monthFmt = DateTimeFormatter.ofPattern("LLLL", Locale.ITALIAN);
+
+        String month = date.format(monthFmt);
         int day = date.getDayOfMonth();
         int yearShort = date.getYear() % 100;
 
@@ -38,10 +36,8 @@ public class FormatDate {
     }
 
     public static String formatIso(LocalTime time) {
-        if (time == null) {
-            return null;
-        }
-        DateTimeFormatter isoFmt = DateTimeFormatter.ofPattern("HH:mm:ss");
-        return time.format(isoFmt);
+        if (time == null) return null;
+
+        return time.format(DateTimeFormatter.ISO_LOCAL_TIME);
     }
 }
