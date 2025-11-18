@@ -2,7 +2,7 @@
 public class RegexReplace {
 
     public static String removeUnits(String s) {
-        return s.replaceAll("(\\d+)(cm|€)", "$1");
+        return s.replaceAll("(\\d+)(cm|€) ", "$1");
     }
 
 
